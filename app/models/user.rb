@@ -2,8 +2,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :trackable, :validatable
 
   has_many :games
- 
+
   def score
-    Game.where(user_id: id).sum("user_score")
+    own_games = Game.where(user_id: id).sum("user_score")
+    oponent_games = Game.where(oponent_id: id).sum("oponent_score")
+    return own_games + oponent_games
   end
 end
