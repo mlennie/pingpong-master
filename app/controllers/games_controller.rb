@@ -11,7 +11,7 @@ class GamesController < ApplicationController
     if params[:user_id]
       @games = Game.all
     else
-      @games = Game.find_by(user_id: params[:user_id])
+      @games = Game.where(user_id: params[:user_id])
     end
 
   end
