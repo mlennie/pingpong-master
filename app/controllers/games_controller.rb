@@ -2,16 +2,16 @@ class GamesController < ApplicationController
 
   def create
     Game.create(game_params)
-    flash[:notice] = 'Successfully checked in'
+    flash[:notice] = 'Successfully created log'
     redirect_to games_path
   end
 
   def index
 
-    if params[:user_id]
-      @games = Game.all
+    if params[:for_user]
+      @games = Game.where(user_id: current_user.id)
     else
-      @games = Game.where(user_id: params[:user_id])
+      @games = Game.all
     end
 
   end
