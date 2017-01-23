@@ -5,9 +5,11 @@ class CreateGames < ActiveRecord::Migration
       t.integer :oponent_id
       t.integer :user_score
       t.integer :oponent_score
+      t.integer :user_id
 
       t.timestamps null: false
     end
     add_index :games, :oponent_id
+    add_index :games, :user_id
   end
 end
