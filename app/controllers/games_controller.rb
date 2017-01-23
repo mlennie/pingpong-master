@@ -1,9 +1,15 @@
 class GamesController < ApplicationController
 
   def create
-    current_user.games.create(game_params)
-    flash[:notice] = 'Successfully created log'
-    redirect_to games_path
+    if !Game.validate_score(game_params)
+      flash[:notice] = 'Score needs to be at least 21 and you must ' +
+                       'win by 2 point margin'
+      redirect_to log_path
+    else
+      current_user.games.create(game_params)
+      flash[:notice] = 'Successfully created log'
+      redirect_to games_path
+    end
   end
 
   def index
