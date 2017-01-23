@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
   validates_presence_of :user_score
   validates_presence_of :oponent_score
   validates_presence_of :user_id
+
+  def score
+    Game.where(user_id: id).sum("user_score")
+  end
 end

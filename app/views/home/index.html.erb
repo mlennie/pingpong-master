@@ -2,4 +2,27 @@
 
 <div class="alert alert-warning" role="alert">This is a sample page.</div>
 
-<%= image_tag('leaderboard.png') %>
+<table class="table">
+  <tr>
+    <th>Rank</th>
+    <th>Email</th>
+    <th>Score</th>
+    <th>Games Played</th>
+  </tr>
+  <% @users.each_with_index do |user,index| %>
+    <tr>
+      <td>
+        <p><%= index + 1 %></p>
+      </td>
+      <td>
+        <p><%= user.email %></p>
+      </td>
+      <td>
+        <p><%= user.score %></p>
+      </td>
+      <td>
+        <p><%= user.games.count %></p>
+      </td>
+    </tr>
+
+<% end %>
