@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_played: 2017-01-23
+  oponent_id: 1
+  user_score: 1
+  oponent_score: 1
+
+two:
+  date_played: 2017-01-23
+  oponent_id: 1
+  user_score: 1
+  oponent_score: 1
