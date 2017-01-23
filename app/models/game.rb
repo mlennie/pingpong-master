@@ -14,4 +14,5 @@ class Game < ActiveRecord::Base
   def oponent
     User.find(oponent_id)
   end
+
 end

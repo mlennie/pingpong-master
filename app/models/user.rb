@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
     oponent_games = Game.where(oponent_id: id).sum("oponent_score")
     return own_games + oponent_games
   end
+
+  def other_users
+    User.where.not(id: id)
+  end
 end

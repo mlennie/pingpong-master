@@ -7,5 +7,6 @@ class HomeController < ApplicationController
   end
 
   def log
+    @current_user = current_user
   end
 end

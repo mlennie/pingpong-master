@@ -8,7 +8,7 @@
       <%= f.date_field :date_played %>
 
       <%= f.label :oponent_id %>
-      <%= f.collection_select(:oponent_id, User.all, :id, :email) %>
+      <%= f.collection_select(:oponent_id, @current_user.other_users, :id, :email) %>
 
       <%= f.label :user_score %>
       <%= f.number_field :user_score %>
