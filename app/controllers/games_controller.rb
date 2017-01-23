@@ -1,7 +1,7 @@
 class GamesController < ApplicationController
 
   def create
-    Game.create(game_params)
+    current_user.games.create(game_params)
     flash[:notice] = 'Successfully created log'
     redirect_to games_path
   end
@@ -10,6 +10,7 @@ class GamesController < ApplicationController
 
     if params[:for_user]
       @games = Game.where(user_id: current_user.id)
+      @for_user = true
     else
       @games = Game.all
     end

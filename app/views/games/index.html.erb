@@ -1,6 +1,8 @@
-<h1 class='page-header'>History</h1>
-
-<div class="alert alert-warning" role="alert">This is a sample page. Replace link in the header with your own.</div>
+<% if @for_user %>
+  <h1 class='page-header'>History</h1>
+<% else %>
+  <h1 class='page-header'>Leadboard</h1>
+<% end %>
 
 <% @games.each do |game| %>
   <p> date_played <p>
