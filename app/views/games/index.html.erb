@@ -1,8 +1,4 @@
-<% if @for_user %>
-  <h1 class='page-header'>History</h1>
-<% else %>
-  <h1 class='page-header'>Leadboard</h1>
-<% end %>
+<h1 class='page-header'>History</h1>
 
 <table class="table">
   <tr>
@@ -17,7 +13,7 @@
         <p><%= game.date_played %></p>
       </td>
       <td>
-        <p><%= User.find_by(id: game.oponent_id).email %></p>
+        <p><%= game.oponent.email %></p>
       </td>
       <td>
         <p><%= game.user_score.to_s + "-" + game.oponent_score.to_s%></p>
@@ -28,4 +24,3 @@
     </tr>
 
 <% end %>
-<%= image_tag('history.png') %>

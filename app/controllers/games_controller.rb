@@ -7,14 +7,7 @@ class GamesController < ApplicationController
   end
 
   def index
-
-    if params[:for_user]
-      @games = Game.where(user_id: current_user.id)
-      @for_user = true
-    else
-      @games = Game.all
-    end
-
+    @games = Game.where(user_id: current_user.id)
   end
 
   private
