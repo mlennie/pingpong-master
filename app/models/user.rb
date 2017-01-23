@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
   def other_users
     User.where.not(id: id)
   end
+
+  def all_games
+    games.count + Game.where(oponent_id: id).count
+  end
 end
