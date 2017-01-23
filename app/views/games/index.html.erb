@@ -4,8 +4,28 @@
   <h1 class='page-header'>Leadboard</h1>
 <% end %>
 
-<% @games.each do |game| %>
-  <p> date_played <p>
-  <p><%= game.date_played %></p>
+<table class="table">
+  <tr>
+    <th>Date Played</th>
+    <th>Oponent</th>
+    <th>Score</th>
+    <th>Win</th>
+  </tr>
+  <% @games.each do |game| %>
+    <tr>
+      <td>
+        <p><%= game.date_played %></p>
+      </td>
+      <td>
+        <p><%= User.find_by(id: game.oponent_id).email %></p>
+      </td>
+      <td>
+        <p><%= game.user_score.to_s + "-" + game.oponent_score.to_s%></p>
+      </td>
+      <td>
+        <p><%= game.win? %></p>
+      </td>
+    </tr>
+
 <% end %>
 <%= image_tag('history.png') %>
