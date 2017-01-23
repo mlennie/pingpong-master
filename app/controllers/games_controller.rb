@@ -2,7 +2,7 @@ class GamesController < ApplicationController
 
   def create
     if !Game.validate_score(game_params)
-      flash[:notice] = 'Score needs to be at least 21 and you must ' +
+      flash[:error] = 'Score needs to be at least 21 and you must ' +
                        'win by 2 point margin'
       redirect_to log_path
     else
